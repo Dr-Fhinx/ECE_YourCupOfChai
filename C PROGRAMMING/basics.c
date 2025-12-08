@@ -136,3 +136,169 @@ void main(){
 
 }
     */
+
+// CONTROL FLOW :
+// IF- ELSE STATEMENT:
+/*
+#include<stdio.h>
+void main(){
+    int num;
+    printf("Enter a number : ");
+    scanf("%d",&num);
+    if(num%2==0){
+        printf("The number is even");
+    }
+    else{
+        printf("The number is odd");
+    }
+}
+*/
+// SWITCH CASE STATEMENT:
+/*
+#include<stdio.h>
+void main(){
+    int day;
+    printf("Enter a number between 1 to 7 : ");
+    scanf("%d",&day);
+    switch(day){
+        case 1:
+            printf("Monday");
+            break;
+        case 2:
+            printf("Tuesday");
+            break;
+        case 3:
+            printf("Wednesday");
+            break;
+        case 4:
+            printf("Thursday");
+            break;
+        case 5:
+            printf("Friday");
+            break;
+        case 6:
+            printf("Saturday");
+            break;
+        case 7:
+            printf("Sunday");
+            break;
+        default:
+            printf("Invalid Input");
+    }
+} 
+*/
+// LOOPS IN C PROGRAMMING:
+// FOR LOOP:
+/*
+#include<stdio.h>
+void main(){
+    int i;
+    for(i=1;i<=10;i++){
+        printf("%d\n",i);
+    }
+} 
+*/
+// WHILE LOOP:
+/*
+#include<stdio.h>
+void main(){
+    int i=1;
+    while(i<=10){
+        printf("%d\n",i);
+        i++;
+    }
+} 
+*/
+// DO WHILE LOOP:
+/*
+#include<stdio.h>
+void main(){
+    int i=1;
+    do{
+        printf("%d\n",i);
+        i++;
+    }while(i<=10);
+} 
+*/
+// NESTED LOOPS:
+/*
+#include<stdio.h>
+void main(){
+    int i,j;
+    for(i=1;i<=5;i++){
+        for(j=1;j<=i;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+} 
+*/
+// QUESTON 001 : PATTERN GENERATOR
+// Write a C program to generate the following pattern:
+/*
+*
+*****
+***********
+***************
+*****************
+*/
+
+//solution :
+/*
+#include<stdio.h>
+void main(){
+    int i;
+    for(i=1;i<6;i++){
+        switch(i){
+            case 1: printf("*\n"); break;
+            case 2: printf("*****\n");  break;
+            case 3: printf("***********\n"); break;
+            case 4: printf("***************\n"); break;
+            case 5: printf("*****************\n"); break;
+        }
+    }
+}
+    */
+   // QUESTION 002 : MENU DRIVEN APPLICATION USING SWITCH CASE
+    // Write a C program that displays a menu to the user and performs different operations based on the user's choice using switch-case statements. The menu should include options for addition, subtraction, multiplication, and division of two numbers.
+    // solution :
+/*
+#include<stdio.h>
+void main(){
+    int choice;
+    float a,b;
+    printf("Menu:\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("Enter your choice (1-4): ");
+    scanf("%d",&choice);
+    printf("Enter two numbers: ");
+    scanf("%f %f",&a,&b);
+    switch(choice){
+        case 1:
+            printf("Addition: %0f\n",a+b);
+            break;
+        case 2:
+            printf("Subtraction: %0f\n",a-b);
+            break;
+        case 3:
+            printf("Multiplication: %0f\n",a*b);
+            break;
+        case 4:
+            if(b!=0){
+                printf("Division: %0f\n",a/b);
+            }
+            else{
+                printf("Error: Division by zero is not allowed.\n");
+            }
+            break;
+        default:
+            printf("Invalid choice.\n");
+    }
+} 
+*/
+
+// ARRAYS AND STRINGS :
+
