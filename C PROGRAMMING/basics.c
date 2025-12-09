@@ -301,4 +301,439 @@ void main(){
 */
 
 // ARRAYS AND STRINGS :
+// ARRAYS IN C:
+// An array is a collection of elements of the same data type stored in contiguous memory locations. Arrays are used to store multiple values in a single variable, making it easier to manage and manipulate related data. Each element in an array can be accessed using its index, which starts from 0 for the first element.
+// Declaring and Initializing an Array:
+/*
+#include<stdio.h>
+void main(){
+    int numbers[5]; // Declaration of an integer array of size 5
+    // Initialization of the array
+    numbers[0] = 10;
+    numbers[1] = 20;
+    numbers[2] = 30;
+    numbers[3] = 40;
+    numbers[4] = 50;
+
+    // Accessing and printing array elements
+    for(int i=0;i<5;i++){
+        printf("Element at index %d: %d\n",i,numbers[i]);
+    }
+} 
+*/
+// 1D ARRAY:
+/*
+#include<stdio.h>
+void main(){
+    int arr[5] = {1,2,3,4,5}; // Declaration and initialization of a 1D array
+    for(int i=0;i<5;i++){
+        printf("%d\n",arr[i]); // Accessing and printing elements of the array
+    }
+} 
+*/
+// 2D ARRAY:
+/*
+#include<stdio.h>
+void main(){
+    int matrix[2][3] = { {1,2,3}, {4,5,6} }; // Declaration and initialization of a 2D array
+    for(int i=0;i<2;i++){
+        for(int j=0;j<3;j++){
+            printf("%d ",matrix[i][j]); // Accessing and printing elements of the 2D array
+        }
+        printf("\n");
+    }
+} 
+*/ // First square brackets represent rows and second represent columns.
+// Character Arrays :
+/*
+#include<stdio.h>
+void main(){
+    char str[20] = "Hello, World!"; // Declaration and initialization of a character array (string)
+    printf("%s\n",str); // Printing the string
+} 
+*/
+// STRINGS IN C:
+// A string in C is an array of characters terminated by a null character ('\0'). Strings are used to represent text and can be manipulated using various string handling functions provided in the <string.h> header file.
+// Declaring and Initializing a String:
+/*
+#include<stdio.h>
+void main(){
+    char str[20] = "Hello, World!"; // Declaration and initialization of a string
+    printf("%s\n",str); // Printing the string
+} 
+*/
+// String Input using scanf():
+/*
+#include<stdio.h>
+void main(){
+    char name[50];
+    printf("Enter your name: ");
+    scanf("%s",name); // Reading a string input
+    printf("Hello, %s!\n",name); // Printing the string
+} 
+*/
+// String Input using fgets():
+/*
+#include<stdio.h>
+void main(){
+    char name[50];
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin); // Reading a string input with spaces
+    // if scanf is used instead of fgets, it will take input only till the first space.
+    printf("Hello, %s!\n",name); // Printing the string
+} 
+*/
+// String Functions:
+/*
+#include<stdio.h>
+#include<string.h>
+void main(){
+    char str1[50] = "Hello";
+    char str2[50] = "World";
+    // String Length
+    printf("Length of str1: %lu\n",strlen(str1));
+    // String Concatenation
+    strcat(str1, " ");
+    strcat(str1, str2);
+    printf("Concatenated String: %s\n",str1);
+    // String Copy
+    char str3[50];
+    strcpy(str3, str1);
+    printf("Copied String: %s\n",str3);
+    // String Comparison
+    int result = strcmp(str1, str3);
+    if(result == 0){
+        printf("str1 and str3 are equal.\n");
+    } else {
+        printf("str1 and str3 are not equal.\n");
+    }
+} 
+*/
+// User-Defined String Functions:
+/*
+#include<stdio.h>
+#include<string.h>
+void reverseString(char str[]){
+    int n = strlen(str);
+    for(int i=0;i<n/2;i++){
+        char temp = str[i];
+        str[i] = str[n-i-1];
+        str[n-i-1] = temp;
+    }
+}
+void main(){
+    char str[50];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    // Remove newline character if present
+    str[strcspn(str, "\n")] = 0; //strcspn finds the first occurrence of '\n' and replaces it with '\0' this is done to avoid newline character in the string.
+    reverseString(str);
+    printf("Reversed String: %s\n",str);
+} 
+*/
+
+//FUNCTIONS IN C:
+// A function in C is a block of code that performs a specific task. Functions help in modularizing the code, making it more organized and reusable. A function typically consists of a function declaration (prototype), a function definition, and a function call.
+// Function Declaration (Prototype):
+// A function declaration specifies the function's name, return type, and parameters (if any) without providing the actual implementation. It informs the compiler about the function's existence before its usage.
+// return_type function_name(parameter_list);
+// Function Definition:
+// A function definition provides the actual implementation of the function. It includes the function's body, which contains the statements that define what the function does.
+// return_type function_name(parameter_list) {
+//     // function body
+// }
+// Function Call:
+// A function call is used to invoke or execute a function. When a function is called, the program control is transferred to the function, and after the function completes its task, control returns to the point where the function was called.
+// function_name(arguments);
+// Example of a Function in C:
+/*
+#include<stdio.h>
+// Function Declaration
+int add(int a, int b);
+// Function Definition
+int add(int a, int b) {
+    return a + b;
+}
+void main() {
+    int num1, num2, sum;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+    // Function Call
+    sum = add(num1, num2);
+    printf("Sum: %d\n", sum);
+} 
+*/
+
+
+// cALL BY VALUE AND CALL BY REFERENCE IN C:
+// Call by Value:
+/*
+#include<stdio.h>
+void swapByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+void main() {
+    int x = 10, y = 20;
+    printf("Before swap (Call by Value): x = %d, y = %d\n", x, y);
+    swapByValue(x, y);
+    printf("After swap (Call by Value): x = %d, y = %d\n", x, y);
+} 
+*/
+// Call by Reference:
+/*
+#include<stdio.h>
+void swapByReference(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void main() {
+    int x = 10, y = 20;
+    printf("Before swap (Call by Reference): x = %d, y = %d\n", x, y);
+    swapByReference(&x, &y);
+    printf("After swap (Call by Reference): x = %d, y = %d\n", x, y);
+} 
+*/
+// Difference between Call by Value and Call by Reference:
+// Call by Value:
+// A copy of the actual parameter's value is passed to the function.
+// Changes made to the parameter inside the function do not affect the original argument.
+// Used for simple data types like int, float, char, etc.
+// Call by Reference:
+// The address of the actual parameter is passed to the function.
+// Changes made to the parameter inside the function affect the original argument.
+// Used for complex data types like arrays, structures, etc.
+
+// RECURSION IN C:
+// Recursion is a programming technique where a function calls itself to solve a smaller instance of the same problem. It is often used to solve problems that can be broken down into smaller, similar subproblems. A recursive function typically has two main components: the base case and the recursive case.
+// Base Case:
+// The base case is a condition that stops the recursion. It defines when the function should stop calling itself and return a value.
+// Recursive Case:
+// The recursive case is where the function calls itself with a modified argument, moving closer to the base case.
+// Example of a Recursive Function to Calculate Factorial:
+/*
+#include<stdio.h>
+int factorial(int n) {
+    // Base Case
+    if(n == 0) {
+        return 1;
+    }
+    // Recursive Case
+    return n * factorial(n - 1);
+}
+void main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    int result = factorial(num);
+    printf("Factorial of %d is %d\n", num, result);
+} 
+*/
+
+// STORAGE CLASSES IN C:
+// Storage classes in C define the scope, visibility, and lifetime of variables and functions within a program. C provides four primary storage classes: auto, register, static, and extern.
+// 1. auto:
+// The auto storage class is the default storage class for local variables. Variables declared with auto are created when the block in which they are defined is entered and destroyed when the block is exited. They have automatic storage duration and are not initialized by default.
+/*
+#include<stdio.h>
+void main() {
+    auto int x = 10; // auto storage class
+    printf("Value of x: %d\n", x);
+} 
+*/
+// 2. register:
+// The register storage class is used to suggest that a variable be stored in a CPU register for faster access. However, the compiler may ignore this suggestion. Register variables have automatic storage duration and are typically used for frequently accessed variables.
+/*
+#include<stdio.h>
+void main() {
+    register int count; // register storage class
+    for(count = 0; count < 10; count++) {
+        printf("%d ", count);
+    }
+    printf("\n");
+} 
+*/
+// 3. static:
+// The static storage class is used to declare variables that retain their value between function calls. Static variables are initialized only once and have a lifetime that lasts for the duration of the program. They can be declared inside functions or outside functions (global scope).
+/*
+#include<stdio.h>
+void counter() {
+    static int count = 0; // static storage class
+    count++;
+    printf("Count: %d\n", count);
+}
+void main() {
+    counter();
+    counter();
+    counter();
+} 
+*/
+// 4. extern:
+// The extern storage class is used to declare variables that are defined in another file or outside the current scope. It allows access to global variables across multiple files. Extern variables have static storage duration.
+/*
+#include<stdio.h>
+extern int globalVar; // extern storage class
+void main() {
+    printf("Value of globalVar: %d\n", globalVar);
+} 
+*/
+// In another file, you would define the global variable:
+/*
+#include<stdio.h>
+int globalVar = 100; // Definition of the extern variable
+// Rest of the code
+*/ // NOTE : extern variable is accessed in another file only if both files are compiled together using a command like: gcc file1.c file2.c -o outputExecutable and are there in same directory.
+
+// QUESTION : STUDENT MARKS MANAGEMENT SYSTEM
+// Write a C program to manage student marks. The program should allow the user to input student names and their corresponding marks, calculate the average marks, and display the names of students who scored above the average.
+// Solution :
+/*
+#include<stdio.h>
+#include<string.h>
+#define MAX_STUDENTS 100 // define : this is used to define a constant value that can be used throughout the program.
+void main(){
+    int n,i;
+    char names[MAX_STUDENTS][50];
+    float marks[MAX_STUDENTS];
+    float sum=0,average;
+
+    printf("Enter number of students: ");
+    scanf("%d",&n);
+
+    for(i=0;i<n;i++){
+        printf("Enter name of student %d: ",i+1);
+        scanf("%s",names[i]);
+        printf("Enter marks of student %d: ",i+1);
+        scanf("%f",&marks[i]);
+        sum += marks[i];
+    }
+
+    average = sum/n;
+    printf("Average Marks: %.2f\n",average);
+    printf("Students scoring above average:\n");
+    for(i=0;i<n;i++){
+        if(marks[i]>average){
+            printf("%s\n",names[i]);
+        }
+    }
+}
+*/
+
+// QUESTION :STRING ENCRYPTION DECRYPTION PROGRAM
+// Write a C program that encrypts and decrypts a given string using a simple Caesar cipher technique. The program should allow the user to input a string and a shift value for encryption and decryption.
+// Solution :
+/*
+#include<stdio.h>
+#include<string.h>
+void encrypt(char str[], int shift){
+    for(int i=0;str[i]!='\0';i++){
+        char ch = str[i];
+        if(ch>='a' && ch<='z'){
+            ch = (ch - 'a' + shift)%26 + 'a';
+            str[i] = ch;
+        }
+        else if(ch>='A' && ch<='Z'){
+            ch = (ch - 'A' + shift)%26 + 'A';
+            str[i] = ch;
+        }
+    }
+}
+void decrypt(char str[], int shift){
+    for(int i=0;str[i]!='\0';i++){
+        char ch = str[i];
+        if(ch>='a' && ch<='z'){
+            ch = (ch - 'a' - shift + 26)%26 + 'a';
+            str[i] = ch;
+        }
+        else if(ch>='A' && ch<='Z'){
+            ch = (ch - 'A' - shift + 26)%26 + 'A';
+            str[i] = ch;
+        }
+    }
+}
+void main(){
+    char str[100];
+    int shift,choice;
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")] = 0; // Remove newline character
+    printf("Enter shift value: ");
+    scanf("%d",&shift);
+    printf("Choose an option:\n1. Encrypt\n2. Decrypt\n");
+    scanf("%d",&choice);
+    if(choice==1){
+        encrypt(str,shift);
+        printf("Encrypted String: %s\n",str);
+    }
+    else if(choice==2){
+        decrypt(str,shift);
+        printf("Decrypted String: %s\n",str);
+    }
+    else{
+        printf("Invalid choice.\n");
+    }
+} 
+*/
+
+//QUESTION : LIBRARY FUNCTION REPLICATION ( strlen, strcpy, strcmp )
+// Write a C program that replicates the functionality of standard library string functions such as strlen, strcpy, and strcmp without using the <string.h> header file.
+// Solution :
+/*
+#include<stdio.h>
+int myStrlen(char str[]){
+    int length = 0;
+    while(str[length]!='\0'){
+        length++;
+    }
+    return length;
+}
+void myStrcpy(char dest[], char src[]){
+    int i=0;
+    while(src[i]!='\0'){
+        dest[i] = src[i];
+        i++;
+    }
+    dest[i] = '\0'; // Null-terminate the destination string
+}
+int myStrcmp(char str1[], char str2[]){
+    int i=0;
+    while(str1[i]!='\0' && str2[i]!='\0'){
+        if(str1[i]!=str2[i]){
+            return str1[i]-str2[i];
+        }
+        i++;
+    }
+    return str1[i]-str2[i];
+}
+void main(){
+    char str1[100], str2[100];
+    printf("Enter first string: ");
+    fgets(str1, sizeof(str1), stdin);
+    str1[strcspn(str1, "\n")] = 0; // Remove newline character
+    printf("Enter second string: ");
+    fgets(str2, sizeof(str2), stdin);
+    str2[strcspn(str2, "\n")] = 0; // Remove newline character
+
+    // Testing myStrlen
+    printf("Length of first string: %d\n", myStrlen(str1));
+    printf("Length of second string: %d\n", myStrlen(str2));
+
+    // Testing myStrcpy
+    char copy[100];
+    myStrcpy(copy, str1);
+    printf("Copied string: %s\n", copy);
+
+    // Testing myStrcmp
+    int cmpResult = myStrcmp(str1, str2);
+    if(cmpResult == 0){
+        printf("Strings are equal.\n");
+    } else if(cmpResult < 0){
+        printf("First string is less than second string.\n");
+    } else {
+        printf("First string is greater than second string.\n");
+    }
+} 
+*/
 
