@@ -736,4 +736,798 @@ void main(){
     }
 } 
 */
+// pointers in C
+// A pointer in C is a variable that stores the memory address of another variable. Pointers are used to directly access and manipulate memory locations, allowing for efficient memory management and dynamic data structures. Pointers are declared using the asterisk (*) symbol, and the address-of operator (&) is used to obtain the address of a variable.
+// Declaring and Using Pointers:
+/*
+#include<stdio.h>
+void main(){
+    int num = 42; // Declare an integer variable
+    int *ptr; // Declare a pointer to an integer
+    ptr = &num; // Assign the address of num to the pointer
+    printf("Value of num: %d\n", num);
+    printf("Value at ptr: %d\n", *ptr);
+    printf("Address of num: %p\n", (void*)&num);
+    printf("Address stored in ptr: %p\n", (void*)ptr);
+    *ptr = 100; // Change the value at the address pointed to by ptr
+    printf("New value of num: %d\n", num);
+}
+*/
 
+// POINTER ARITHMETIC IN C:
+/*
+#include<stdio.h>
+void main(){
+    int arr[] = {10, 20, 30, 40, 50}; // Declare and initialize an array
+    int *ptr = arr; // Pointer to the first element of the array
+    for(int i=0;i<5;i++){
+        printf("Element %d: %d\n", i, *(ptr + i)); // Accessing array elements using pointer arithmetic
+        // Basically, when we add 1 to a pointer, it adds 4 bytes of space to whatever it is pointing to this implies it's address is shifted by 4 bytes. If we are using this in arrays then we are acctually moving to the next element.
+
+    }
+}       
+*/
+// POINTERS AND ARRAYS IN C:
+/*
+#include<stdio.h>
+void main(){
+    int arr[] = {1,2,3,4,5}; // Declare and initialize an array
+    int *ptr = arr; // Pointer to the first element of the array
+    for(int i=0;i<5;i++){
+        printf("Element %d: %d\n", i, *(ptr + i)); // Accessing array elements using pointer arithmetic
+    }
+}       
+*/
+// POINTERS AND FUNCTIONS IN C:
+/*
+#include<stdio.h>
+void increment(int *num){
+    (*num)++; // Increment the value at the address pointed to by num
+}
+void main(){
+    int value = 10;
+    printf("Before increment: %d\n", value);
+    increment(&value); // Pass the address of value to the function
+    printf("After increment: %d\n", value);
+}
+*/
+// POINTERS TO POINTERS IN C:
+/*
+#include<stdio.h>
+void main(){
+    int num = 42; // Declare an integer variable
+    int *ptr = &num; // Pointer to the integer variable
+    int **ptrToPtr = &ptr; // Pointer to the pointer
+    printf("Value of num: %d\n", num);
+    printf("Value at ptr: %d\n", *ptr);
+    printf("Value at ptrToPtr: %d\n", **ptrToPtr);
+}
+*/
+
+// QUESTIONS : Dynamic Array Implementation
+// Write a C program to implement a dynamic array using pointers. The program should allow the user to input the size of the array, input elements into the array, and then display the elements of the array.
+// Solution :
+/*
+#include<stdio.h>
+void main(){
+    int arrSize;
+    printf("ENter size of Array: \n");
+    scanf("%d",&arrSize);
+    int arr[arrSize];
+    int *ptr = arr;
+    for(int i = 0; i<arrSize; i++){
+        printf("Enter element %d: \n",i+1);
+        scanf("%d",(ptr+i));
+    }
+    printf("ARRAY ELEMENTS ARE : ",arr);
+
+
+}
+*/
+
+// QUESTION : FUNTION POINTER_BASED MENU SYSTEM
+// Write a C program that implements a menu system using function pointers. The program should allow the user to choose from different operations (e.g., addition, subtraction, multiplication, division) and execute the corresponding function based on the user's choice.
+// Solution :
+/*
+#include<stdio.h>
+void add(){
+    int a,b;
+    printf("Enter two numbers to add: ");
+    scanf("%d %d",&a,&b);
+    printf("Sum: %d\n",a+b);
+}
+void subtract(){
+    int a,b;
+    printf("Enter two numbers to subtract: ");
+    scanf("%d %d",&a,&b);
+    printf("Difference: %d\n",a-b);
+}
+void multiply(){
+    int a,b;
+    printf("Enter two numbers to multiply: ");
+    scanf("%d %d",&a,&b);
+    printf("Product: %d\n",a*b);
+}
+void divide(){
+    int a,b;
+    printf("Enter two numbers to divide: ");
+    scanf("%d %d",&a,&b);
+    if(b!=0){
+        printf("Quotient: %d\n",a/b);
+    }
+    else{
+        printf("Error: Division by zero is not allowed.\n");
+    }
+}
+void main(){
+    void (*operations[4])() = {add, subtract, multiply, divide}; // Array of function pointers
+    int choice;
+    printf("Menu:\n");
+    printf("1. Addition\n");
+    printf("2. Subtraction\n"); 
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("Enter your choice (1-4): ");
+    scanf("%d",&choice);
+    if(choice>=1 && choice<=4){
+        operations[choice-1](); // Call the selected function
+    }
+    else{
+        printf("Invalid choice.\n");
+    }
+} 
+*/
+
+// DYNAMIC MEMORY ALLOCATION IN C:
+// Dynamic memory allocation in C allows programs to request memory at runtime using functions from the <stdlib.h> header file. This is useful for creating data structures whose size may not be known at compile time. The primary functions for dynamic memory allocation are malloc(), calloc(), realloc(), and free().
+//1. malloc():
+// The malloc() function allocates a specified number of bytes of memory and returns a pointer to the allocated memory. The memory is not initialized.
+/*
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int n;
+    printf("Enter number of integers: ");
+    scanf("%d",&n);
+    int *arr = (int*)malloc(n * sizeof(int)); // Allocate memory for n integers
+    if(arr == NULL){
+        printf("Memory allocation failed.\n");
+        return;
+    }
+    for(int i=0;i<n;i++){
+        printf("Enter element %d: ",i+1);
+        scanf("%d",&arr[i]);
+    }
+    printf("Array elements are:\n");
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    free(arr); // Free the allocated memory
+} 
+*/
+
+// 2. calloc():
+// The calloc() function allocates memory for an array of elements, initializes all bytes to zero, and returns a pointer to the allocated memory.
+/*
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int n;
+    printf("Enter number of integers: ");
+    scanf("%d",&n); 
+    int *arr = (int*)calloc(n, sizeof(int)); // Allocate memory for n integers and initialize to zero
+    if(arr == NULL){
+        printf("Memory allocation failed.\n");
+        return;
+    }
+    printf("Array elements are (initialized to zero):\n");
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    free(arr); // Free the allocated memory
+} 
+*/
+// 3. realloc():
+// The realloc() function changes the size of previously allocated memory. It can be used to increase or decrease the size of the memory block.
+/*
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int n;
+    printf("Enter initial number of integers: ");
+    scanf("%d",&n); 
+    int *arr = (int*)malloc(n * sizeof(int)); // Allocate memory for n integers
+    if(arr == NULL){
+        printf("Memory allocation failed.\n");
+        return;
+    }
+    for(int i=0;i<n;i++){
+        arr[i] = i + 1; // Initialize array elements
+    }
+    printf("Array elements are:\n");
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+    // Resize the array
+    int newSize;
+    printf("Enter new size of the array: ");
+    scanf("%d",&newSize);
+    arr = (int*)realloc(arr, newSize * sizeof(int)); // Resize the memory block
+    if(arr == NULL){
+        printf("Memory reallocation failed.\n");
+        return;
+    }
+    for(int i=n;i<newSize;i++){
+        arr[i] = i + 1; // Initialize new elements
+    }
+    printf("Resized array elements are:\n");
+    for(int i=0;i<newSize;i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");   
+    free(arr); // Free the allocated memory
+} 
+*/
+// 4. free():
+// The free() function deallocates previously allocated memory, making it available for future allocations. It is important to free dynamically allocated memory to avoid memory leaks.
+/*
+#include<stdio.h>   
+#include<stdlib.h>
+void main(){
+    int *ptr = (int*)malloc(10 * sizeof(int)); // Allocate memory for 10 integers
+    if(ptr == NULL){
+        printf("Memory allocation failed.\n");
+        return;
+    }   
+    // Use the allocated memory
+    free(ptr); // Free the allocated memory
+} 
+*/
+// MEMORY LEAKS IN C:
+// A memory leak occurs when a program allocates memory dynamically but fails to deallocate it using the free() function. This can lead to increased memory usage over time and can eventually exhaust available memory, causing the program to crash or behave unexpectedly. To prevent memory leaks, it is essential to free all dynamically allocated memory when it is no longer needed.
+
+//DANGLING POINTERS IN C:
+// A dangling pointer is a pointer that points to a memory location that has been deallocated or freed. Accessing or dereferencing a dangling pointer can lead to undefined behavior, crashes, or data corruption. To avoid dangling pointers, it is important to set pointers to NULL after freeing the memory they point to.
+/*
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int *ptr = (int*)malloc(sizeof(int)); // Allocate memory
+    *ptr = 42; // Use the allocated memory
+    printf("Value: %d\n", *ptr);
+    free(ptr); // Free the allocated memory
+    ptr = NULL; // Set pointer to NULL to avoid dangling pointer
+} 
+*/
+
+// QUESTION : MATRIX MULTIPLICATION USING DYNAMIC MEMORY ALLOCATION
+// Write a C program to perform matrix multiplication using dynamic memory allocation. The program should allow the user to input the dimensions and elements of two matrices, perform the multiplication, and display the resulting matrix.
+// Solution :
+/*
+#include<stdio.h>
+#include<stdlib.h>
+void main(){
+    int row1, col1, row2, col2;
+    printf ("ENTER ROWS AND COLOUMNS OF FIRST MATRIX: \n");
+    scanf ("%d %d", &row1, &col1);
+    printf ("ENTER ROWS AND COLOUMNS OF SECOND MATRIX: \n");
+    scanf ("%d %d", &row2, &col2);
+    if (col1 != row2){
+        printf ("MATRIX MULTIPLICATION NOT POSSIBLE\n");
+        return;
+    }
+
+    int * matrix1 = malloc(row1*col1*sizeof(int));
+    int * matrix2 = malloc(row2*col2*sizeof(int));
+    int * result = malloc(row1*col2*sizeof(int));
+    printf ("ENTER ELEMENTS OF FIRST MATRIX: \n");
+    for (int i=0; i<row1; i++){
+        for (int j=0; j<col1; j++){
+            scanf ("%d", (matrix1 + i*col1 + j));
+        }
+    }
+
+    printf ("ENTER ELEMENTS OF SECOND MATRIX: \n");
+    for (int i=0; i<row2; i++){
+        for (int j=0; j<col2; j++){
+            scanf ("%d", (matrix2 + i*col2 + j));
+        }
+    }
+
+    // Perform matrix multiplication
+    for (int i=0; i<row1; i++){
+        for (int j=0; j<col2; j++){
+            *(result + i*col2 + j) = 0; // Initialize result element
+            for (int k=0; k<col1; k++){
+                *(result + i*col2 + j) += *(matrix1 + i*col1 + k) * *(matrix2 + k*col2 + j);
+            }
+        }
+    }
+
+    // Display the resulting matrix
+    printf ("RESULTING MATRIX: \n");
+    for (int i=0; i<row1; i++){
+        for (int j=0; j<col2; j++){
+            printf ("%d ", *(result + i*col2 + j));
+        }
+        printf ("\n");
+    }
+
+    // Free allocated memory
+    free(matrix1);
+    free(matrix2);
+    free(result);
+}
+*/
+
+// STRUCTURES IN C:
+// A structure in C is a user-defined data type that allows grouping of related variables of different data types under a single name. Structures are used to represent complex data entities and facilitate organized data management. A structure is defined using the struct keyword, and its members can be accessed using the dot (.) operator.
+// Defining and Using Structures:
+/*
+#include<stdio.h>
+struct Student {
+    char name[50];
+    int age;
+    float marks;
+};  
+void main(){
+    struct Student student1; // Declare a structure variable
+    // Assign values to structure members
+    printf("Enter name: ");
+    fgets(student1.name, sizeof(student1.name), stdin);
+    printf("Enter age: ");
+    scanf("%d",&student1.age);
+    printf("Enter marks: ");
+    scanf("%f",&student1.marks);
+    // Access and print structure members
+    printf("Student Details:\n");
+    printf("Name: %s",student1.name);
+    printf("Age: %d\n",student1.age);
+    printf("Marks: %.2f\n",student1.marks);
+} 
+*/
+// NESTED STRUCTURES IN C:
+/*
+#include<stdio.h>
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+struct Student {
+    char name[50];
+    int age;
+    struct Date dob; // Nested structure
+};
+void main(){
+    struct Student student1; // Declare a structure variable
+    // Assign values to structure members
+    printf("Enter name: ");
+    fgets(student1.name, sizeof(student1.name), stdin);
+    printf("Enter age: ");  
+    scanf("%d",&student1.age);
+    printf("Enter date of birth (day month year): ");
+    scanf("%d %d %d",&student1.dob.day, &student1.dob.month, &student1.dob.year);
+    // Access and print structure members
+    printf("Student Details:\n");
+    printf("Name: %s",student1.name);
+    printf("Age: %d\n",student1.age);
+    printf("Date of Birth: %02d/%02d/%04d\n",student1.dob.day, student1.dob.month, student1.dob.year); // You need not define one more structure for date of birth, you can simply nest it inside student structure.
+} 
+*/
+//ARRAY OF STRUCTURES IN C:
+/*
+#include<stdio.h>
+struct Student {
+    char name[50];
+    int age;
+    float marks;
+};
+void main(){
+    int n;
+    printf("Enter number of students: ");   
+    scanf("%d",&n);
+    struct Student students[n]; // Declare an array of structures
+    for(int i=0;i<n;i++){
+        printf("Enter details for student %d:\n",i+1);
+        printf("Name: ");
+        getchar(); // To consume the newline character left by previous scanf
+        fgets(students[i].name, sizeof(students[i].name), stdin);
+        printf("Age: ");
+        scanf("%d",&students[i].age);
+        printf("Marks: ");
+        scanf("%f",&students[i].marks);
+    }
+    // Display student details
+    printf("Student Details:\n");
+    for(int i=0;i<n;i++){
+        printf("Student %d:\n",i+1);
+        printf("Name: %s",students[i].name);
+        printf("Age: %d\n",students[i].age);
+        printf("Marks: %.2f\n",students[i].marks);
+    }
+}
+*/
+
+// UNION IN C:
+// A union in C is a user-defined data type that allows storing different data types in the same memory location. Unlike structures, where each member has its own memory space, all members of a union share the same memory. This means that at any given time, only one member of the union can hold a value. Unions are useful for memory optimization when you need to store different types of data but only one type at a time.
+// Defining and Using Unions:
+/*
+#include<stdio.h>
+union Data {
+    int intValue;
+    float floatValue;
+    char charValue;
+};
+void main(){
+    union Data data;
+    data.intValue = 5;
+    printf("Integer: %d\n",data.intValue);
+    data.floatValue = 3.14;
+    printf("Float: %.2f\n",data.floatValue); // Note: Assigning a new value to floatValue overwrites intValue.
+    data.charValue = 'A';
+    printf("Character: %c\n",data.charValue);
+}
+*/
+
+// BITFIELDS IN C:
+// A bitfield in C is a special type of structure member that allows the allocation of a specific number of bits for a variable. Bitfields are used to optimize memory usage when you need to store multiple boolean or small integer values within a single byte or word. Bitfields are defined using a colon (:) followed by the number of bits to be allocated.
+// Defining and Using Bitfields:
+/*
+#include<stdio.h>
+struct Flags {
+    unsigned int isActive : 1; // 1 bit
+    unsigned int isAdmin : 1;  // 1 bit
+    unsigned int accessLevel : 3; // 3 bits
+};
+void main(){
+    struct Flags userFlags;
+    userFlags.isActive = 1;
+    userFlags.isAdmin = 0;
+    userFlags.accessLevel = 5; // Max value for 3 bits is 7
+    printf("isActive: %u\n",userFlags.isActive);
+    printf("isAdmin: %u\n",userFlags.isAdmin);
+    printf("accessLevel: %u\n",userFlags.accessLevel);
+} 
+*/
+
+//typedef IN C:
+// The typedef keyword in C is used to create new type names (aliases) for existing data types. This can improve code readability and make it easier to manage complex data types such as structures and pointers. The syntax for using typedef is as follows:
+// typedef existing_type new_type_name;
+
+// QUESTION : CUSTOM MEMORY MANAGEMENT 
+// Write a C program that implements a simple custom memory management system using dynamic memory allocation. The program should allow the user to allocate and deallocate memory blocks of varying sizes and keep track of the allocated memory.
+// Solution :
+/*
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX_BLOCKS 100
+typedef struct {
+    void *address;
+    size_t size;
+} MemoryBlock;
+MemoryBlock allocatedBlocks[MAX_BLOCKS];
+int blockCount = 0; 
+void* customMalloc(size_t size){
+    if(blockCount >= MAX_BLOCKS){
+        printf("Memory limit reached.\n");
+        return NULL;
+    }
+    void *ptr = malloc(size);
+    if(ptr != NULL){
+        allocatedBlocks[blockCount].address = ptr;
+        allocatedBlocks[blockCount].size = size;
+        blockCount++;
+    }
+    return ptr;
+}
+void customFree(void *ptr){
+    for(int i=0;i<blockCount;i++){
+        if(allocatedBlocks[i].address == ptr){
+            free(ptr);
+            // Shift remaining blocks
+            for(int j=i;j<blockCount-1;j++){
+                allocatedBlocks[j] = allocatedBlocks[j+1];
+            }
+            blockCount--;
+            return;
+        }
+    }
+    printf("Pointer not found in allocated blocks.\n");
+}
+void displayAllocatedBlocks(){
+    printf("Allocated Memory Blocks:\n");
+    for(int i=0;i<blockCount;i++){
+        printf("Block %d: Address = %p, Size = %zu bytes\n",i+1, allocatedBlocks[i].address, allocatedBlocks[i].size);
+    }
+}
+void main(){
+    int choice;
+    do{
+        printf("Menu:\n1. Allocate Memory\n2. Deallocate Memory\n3. Display Allocated Blocks\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d",&choice);
+        switch(choice){
+            case 1: {
+                size_t size;
+                printf("Enter size of memory to allocate (in bytes): ");
+                scanf("%zu",&size);
+                void *ptr = customMalloc(size);
+                if(ptr != NULL){    
+                    printf("Memory allocated at address: %p\n",ptr);
+                }
+                break;
+            }
+            case 2: {   
+                void *ptr;
+                printf("Enter address of memory to deallocate: ");
+                scanf("%p",&ptr);
+                customFree(ptr);
+                break;
+            }
+            case 3:
+                displayAllocatedBlocks();
+                break;
+            case 4:
+                printf("Exiting program.\n");
+                break;
+            default:    
+                printf("Invalid choice.\n");
+        }
+    }while(choice != 4);
+} 
+*/
+
+// QUESTION : PACKET PARSER USING STRUCTURES AND UNIONS
+// Write a C program that simulates a simple packet parser using structures and unions. The program should define a packet structure with different fields (e.g., header, payload, checksum) and use a union to represent different types of payloads (e.g., text, binary data). The program should allow the user to input packet data and display the parsed information.
+// Solution :
+/*
+#include<stdio.h>
+#include<string.h>
+#define MAX_PAYLOAD_SIZE 256
+typedef struct {
+    char text[MAX_PAYLOAD_SIZE];
+} TextPayload;
+typedef struct {
+    unsigned char data[MAX_PAYLOAD_SIZE];
+    size_t length;
+} BinaryPayload;
+typedef union {
+    TextPayload textPayload;
+    BinaryPayload binaryPayload;
+} Payload;
+typedef struct {
+    unsigned int header;
+    Payload payload;
+    unsigned int checksum;
+    int isText; // 1 for text, 0 for binary
+} Packet;
+unsigned int calculateChecksum(Packet *packet){
+    unsigned int sum = packet->header;
+    if(packet->isText){
+        for(size_t i=0;i<strlen(packet->payload.textPayload.text);i++){
+            sum += packet->payload.textPayload.text[i];
+        }
+    } else {
+        for(size_t i=0;i<packet->payload.binaryPayload.length;i++){
+            sum += packet->payload.binaryPayload.data[i];
+        }
+    }
+    return sum;
+}
+void main(){
+    Packet packet;
+    printf("Enter packet header (unsigned int): ");
+    scanf("%u",&packet.header);
+    printf("Is the payload text or binary? (1 for text, 0 for binary
+): ");
+    scanf("%d",&packet.isText);
+    if(packet.isText){
+        printf("Enter text payload: ");
+        getchar(); // Consume newline character
+        fgets(packet.payload.textPayload.text, sizeof(packet.payload.textPayload.text), stdin);
+        packet.payload.textPayload.text[strcspn(packet.payload.textPayload.text, "\n")] = 0; // Remove newline character
+    } else {
+        printf("Enter length of binary payload: ");
+        scanf("%zu",&packet.payload.binaryPayload.length);
+        printf("Enter binary payload (as space-separated bytes): ");
+        for(size_t i=0;i<packet.payload.binaryPayload.length;i++){
+            int byte;
+            scanf("%d",&byte);
+            packet.payload.binaryPayload.data[i] = (unsigned char)byte;
+        }
+    }
+    packet.checksum = calculateChecksum(&packet);
+    printf("Parsed Packet Information:\n");
+    printf("Header: %u\n",packet.header);
+    if(packet.isText){
+        printf("Text Payload: %s\n",packet.payload.textPayload.text);
+    } else {    
+        printf("Binary Payload: ");
+        for(size_t i=0;i<packet.payload.binaryPayload.length;i++){
+            printf("%02X ",packet.payload.binaryPayload.data[i]);
+        }
+        printf("\n");
+    }
+    printf("Checksum: %u\n",packet.checksum);
+} 
+*/
+
+//FILE HANDLING IN C:
+// File handling in C allows programs to read from and write to files stored on disk. The standard library <stdio.h> provides functions for file operations such as opening, closing, reading, writing, and manipulating files. Files can be opened in different modes (e.g., read, write, append) depending on the desired operation.
+// Opening and Closing Files:
+/*
+#include<stdio.h>
+void main(){
+    FILE *file; // Declare a file pointer
+    // Open a file in write mode
+    file = fopen("example.txt", "w");
+    if(file == NULL){
+        printf("Error opening file.\n");
+        return;
+    }
+    // Write to the file
+    fprintf(file, "Hello, World!\n");
+    // Close the file
+    fclose(file);
+} 
+*/
+// Reading from a File:
+/*
+#include<stdio.h>
+void main(){
+    FILE *file; // Declare a file pointer
+    char buffer[100];
+    // Open a file in read mode
+    file = fopen("example.txt", "r");
+    if(file == NULL){
+        printf("Error opening file.\n");
+        return;
+    }
+    // Read from the file
+    while(fgets(buffer, sizeof(buffer), file) != NULL){
+        printf("%s", buffer);
+    }
+    // Close the file
+    fclose(file);   
+} 
+*/
+// Writing to a File:
+/*
+#include<stdio.h>
+void main(){
+    FILE *file; // Declare a file pointer
+    // Open a file in append mode
+    file = fopen("example.txt", "a");
+    if(file == NULL){
+        printf("Error opening file.\n");
+        return;
+    }
+    // Write to the file
+    fprintf(file, "Appending a new line.\n");
+    // Close the file
+    fclose(file);
+}
+*/
+// File Modes in C:
+// "r" - Read mode: Opens a file for reading. The file must exist.
+// "w" - Write mode: Opens a file for writing. If the file exists, it is truncated to zero length. If the file does not exist, it is created.
+// "a" - Append mode: Opens a file for writing at the end of the file. If the file does not exist, it is created.
+// "r+" - Read and write mode: Opens a file for both reading and writing. The file must exist.
+// "w+" - Write and read mode: Opens a file for both reading and writing. If the file exists, it is truncated to zero length. If the file does not exist, it is created.
+// "a+" - Append and read mode: Opens a file for both reading and writing at the end of the file. If the file does not exist, it is created.
+
+
+// RANDOM ACCESS FILE HANDLING IN C:
+/*
+#include<stdio.h>
+void main(){
+    FILE *file; // Declare a file pointer
+    int numbers[5] = {10, 20, 30, 40, 50};
+    // Open a file in binary write mode
+    file = fopen("numbers.bin", "wb");
+    if(file == NULL){
+        printf("Error opening file.\n");
+        return;
+    }
+    // Write the array to the file
+    fwrite(numbers, sizeof(int), 5, file);
+    fclose(file);
+    // Open the file in binary read mode
+    file = fopen("numbers.bin", "rb");
+    if(file == NULL){
+        printf("Error opening file.\n");
+        return;
+    }
+    int num;
+    // Seek to the third integer (index 2)
+    fseek(file, 2 * sizeof(int), SEEK_SET);
+    // Read the integer
+    fread(&num, sizeof(int), 1, file);
+    printf("The third number is: %d\n", num);
+    fclose(file);
+} 
+*/
+// If you want to read or write at a specific position in a file, you can use the fseek() function to move the file pointer to the desired location before performing read or write operations.
+// If you want to open a file from different directory you can provide the full path of the file while opening it using fopen() function.
+
+
+// QUESTION : EMLOYEE DATABASE MANAGER
+// Write a C program to manage an employee database using structures. The program should allow the user to add, display, and search for employees based on their ID.
+// Solution :
+/*
+#include<stdio.h>
+#include<string.h>
+#define MAX_EMPLOYEES 100
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+struct Employee employees[MAX_EMPLOYEES];
+int employeeCount = 0;
+void addEmployee(){
+    if(employeeCount >= MAX_EMPLOYEES){
+        printf("Employee database is full.\n");
+        return;
+    }
+    struct Employee emp;
+    printf("Enter Employee ID: ");
+    scanf("%d",&emp.id);
+    printf("Enter Employee Name: ");
+    getchar(); // Consume newline character
+    fgets(emp.name, sizeof(emp.name), stdin);
+    emp.name[strcspn(emp.name, "\n")] = 0; // Remove newline character
+    printf("Enter Employee Salary: ");
+    scanf("%f",&emp.salary);
+    employees[employeeCount++] = emp;
+    printf("Employee added successfully.\n");
+}
+void displayEmployees(){
+    printf("Employee Database:\n");
+    for(int i=0;i<employeeCount;i++){
+        printf("ID: %d, Name: %s, Salary: %.2f\n",employees[i].id, employees[i].name, employees[i].salary);
+    }
+}
+void searchEmployee(){
+    int id;
+    printf("Enter Employee ID to search: ");
+    scanf("%d",&id);
+    for(int i=0;i<employeeCount;i++){
+        if(employees[i].id == id){
+            printf("Employee Found: ID: %d, Name: %s, Salary: %.2f\n",employees[i].id, employees[i].name, employees[i].salary);
+            return;
+        }
+    }
+    printf("Employee with ID %d not found.\n",id);
+}
+void main(){
+    int choice;
+    do{
+        printf("Menu:\n1. Add Employee\n2. Display Employees\n3. Search
+    Employee\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d",&choice);
+        switch(choice){
+            case 1:
+                addEmployee();
+                break;
+            case 2:
+                displayEmployees();
+                break;
+            case 3:
+                searchEmployee();
+                break;
+            case 4:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice.\n");
+        }
+    }while(choice != 4);
+} 
+*/
+//**********************************************  THE END  ******************************************************** */
