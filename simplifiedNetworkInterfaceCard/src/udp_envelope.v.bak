@@ -1,0 +1,26 @@
+module udp_envelope(
+input hps_uart_rx,
+input clock,
+output reg [63:0]envelope,
+output reg valid, invalid
+)
+reg [7:0]data_out_uart2;
+
+uart_data data(.hps_uart_rx(hps_uart_rx),.clock(clock),.valid(valid),.invalid(invalid),.data_out(data_out_uart2),.valid(valid),.invalid(invalid));
+
+reg [15:0]data_out_uart1;
+
+always@(posedge clock)
+begin
+	data_out_uart1<=data_out_uart2;
+	if(data_out_uart1==data_out_uart2)
+	begin
+		
+	end
+	else
+	begin
+		envelope<={10'd5000,10'd12345,10'd64,data_out_uart2,4'b1000};
+	end
+	
+end
+endmodule

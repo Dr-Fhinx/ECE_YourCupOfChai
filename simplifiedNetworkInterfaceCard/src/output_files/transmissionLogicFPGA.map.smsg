@@ -1,0 +1,5 @@
+Warning (10268): Verilog HDL information at frame.v(94): always construct contains both blocking and non-blocking assignments File: C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v Line: 94
+Info (10281): Verilog HDL Declaration information at frame.v(28): object "sfd" differs only in case from object "SFD" in the same scope File: C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v Line: 28
+Info (10281): Verilog HDL Declaration information at frame.v(30): object "dest_mac" differs only in case from object "DEST_MAC" in the same scope File: C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v Line: 30
+Info (10281): Verilog HDL Declaration information at frame.v(31): object "src_mac" differs only in case from object "SRC_MAC" in the same scope File: C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v Line: 31
+Info (10281): Verilog HDL Declaration information at frame.v(32): object "ether_type" differs only in case from object "ETHER_TYPE" in the same scope File: C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v Line: 32

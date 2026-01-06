@@ -1,0 +1,15 @@
+module parser(
+input clock,
+input [7:0]data_in,
+input data_in_valid,
+output [7:0]real_data_out,
+output real_data_out_valid
+);
+
+
+reg [2:0]STATE;
+reg counter;
+parameter	IDLE,
+				CHCK_SFD,
+				CHCK_DEST_MAC,
+

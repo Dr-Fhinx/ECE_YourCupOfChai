@@ -1,0 +1,59 @@
+
+*** Running vivado
+    with args -log exec_nic.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source exec_nic.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Dec 25 15:29:30 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source exec_nic.tcl -notrace
+Command: synth_design -top exec_nic -part xc7a200tfbg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 23788
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1182.719 ; gain = 537.664
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6901] identifier 'data_in_reg' is used before its declaration [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v:16]
+INFO: [Synth 8-11241] undeclared symbol 'MAX10_CLK1_50', assumed default net type 'wire' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v:41]
+INFO: [Synth 8-6157] synthesizing module 'exec_nic' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v:1]
+INFO: [Synth 8-6157] synthesizing module 'nibble_stitcher' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/nibble_stitcher.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'nibble_stitcher' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/nibble_stitcher.v:1]
+INFO: [Synth 8-6157] synthesizing module 'parser' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/parser.v:1]
+INFO: [Synth 8-226] default block is never used [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/parser.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'parser' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/parser.v:1]
+INFO: [Synth 8-6157] synthesizing module 'frame' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v:1]
+INFO: [Synth 8-6157] synthesizing module 'udp_envelope' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/udp_envelope.v:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_data' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/uart_data.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'uart_data' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/uart_data.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'udp_envelope' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/udp_envelope.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ipEnvelope' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/ipEnvelope.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ipEnvelope' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/ipEnvelope.v:1]
+INFO: [Synth 8-6157] synthesizing module 'crc32_4bit' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:1]
+WARNING: [Synth 8-6104] Input port 'data' has an internal driver [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:39]
+WARNING: [Synth 8-6104] Input port 'data' has an internal driver [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:39]
+WARNING: [Synth 8-6104] Input port 'data' has an internal driver [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:39]
+WARNING: [Synth 8-6104] Input port 'data' has an internal driver [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:39]
+INFO: [Synth 8-6155] done synthesizing module 'crc32_4bit' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'frame' (0#1) [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v:1]
+ERROR: [Synth 8-685] variable 'TX_DATA' should not be used in output port connection [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v:36]
+ERROR: [Synth 8-6156] failed synthesizing module 'exec_nic' [C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1301.785 ; gain = 656.730
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+22 Infos, 5 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1301.785 ; gain = 660.680
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 25 15:29:49 2025...

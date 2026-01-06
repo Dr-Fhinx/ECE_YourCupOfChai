@@ -1,0 +1,15 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/crc32_4bit.v,1766236280,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v,,crc32_4bit,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v,1766560828,verilog,,,,exec_nic,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/frame.v,1766253223,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/ipEnvelope.v,,frame,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/ipEnvelope.v,1766216423,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/nibble_stitcher.v,,ipEnvelope,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/nibble_stitcher.v,1766514121,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/parser.v,,nibble_stitcher,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/parser.v,1766559612,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/uart_data.v,,parser,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/uart_data.v,1766662000,verilog,,C:/Users/exspe/Acads/ECE_YourCupOfChai/PROJECTS/imageProcessing/project_1/project_1.srcs/sources_1/new/uart_data_tb.v,,uart_data,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/uart_tx.v,1766560625,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/udp_envelope.v,,uart_tx,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/udp_envelope.v,1766077991,verilog,,C:/Users/exspe/Acads/ECE-YourCupOfChai/FPGA/TX/exec_nic.v,,udp_envelope,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/Users/exspe/Acads/ECE_YourCupOfChai/PROJECTS/imageProcessing/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+C:/Users/exspe/Acads/ECE_YourCupOfChai/PROJECTS/imageProcessing/project_1/project_1.srcs/sources_1/new/uart_data_tb.v,1766662166,verilog,,,,uart_data_tb,,,../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,

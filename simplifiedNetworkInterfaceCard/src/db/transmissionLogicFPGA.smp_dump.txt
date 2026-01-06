@@ -1,0 +1,6 @@
+
+State Machine - |udp_envelope|uart_data:data|STATE
+Name STATE.START STATE.DONE STATE.WORK 
+STATE.START 0 0 0 
+STATE.WORK 1 0 1 
+STATE.DONE 1 1 0 

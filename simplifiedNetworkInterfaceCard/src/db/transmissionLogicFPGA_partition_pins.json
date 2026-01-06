@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "envelope[8]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[9]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[10]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[11]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[12]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[13]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[14]",
+					"strict" : false
+				},
+				{
+					"name" : "envelope[15]",
+					"strict" : false
+				},
+				{
+					"name" : "invalid",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "hps_uart_rx",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

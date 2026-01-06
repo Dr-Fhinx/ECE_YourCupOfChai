@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="udp_envelope_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="udp_envelope_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="96,427.834 ns"></ZoomStartTime>
+      <ZoomEndTime time="97,020.835 ns"></ZoomEndTime>
+      <Cursor1Time time="95,800.917 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="139"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject fp_name="/udp_envelope_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/hps_uart_rx_wire" type="array">
+      <obj_property name="ElementShortName">hps_uart_rx_wire[13:0]</obj_property>
+      <obj_property name="ObjectShortName">hps_uart_rx_wire[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/hps_uart_rx_reg" type="logic">
+      <obj_property name="ElementShortName">hps_uart_rx_reg</obj_property>
+      <obj_property name="ObjectShortName">hps_uart_rx_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/valid" type="logic">
+      <obj_property name="ElementShortName">valid</obj_property>
+      <obj_property name="ObjectShortName">valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/udp_envelope_tb/invalid" type="logic">
+      <obj_property name="ElementShortName">invalid</obj_property>
+      <obj_property name="ObjectShortName">invalid</obj_property>
+   </wvobject>
+</wave_config>

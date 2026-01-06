@@ -1,0 +1,12 @@
+module frame(
+input clock,hps_uart_rx,
+output [3:0] data_out
+);
+
+wire [63:0]envelope_iudp_wire;
+wire valid_udp_wire, invalid_udp_wire;
+wire [159:0]ipEnvelope_data_out_wire;
+reg udpEnvelopeValid;
+wire validipEnvelope_wire;
+udp_envelope udp_packet (.clock(clock),.hps_uart_rx(hps_uart_rx),.valid(valid_udp_wire),.invalid(invalid_udp_wire),.envelope(.envelope_udp_wire));
+ipEnvelope ipHeader (.clock(clock),.udpEnvelopeValid(udpEnvelopeValid),.ipEnvelope_data_out(ipEnvelope_data_out_wire),.valididEnvelope(validipEnvelope_wire));

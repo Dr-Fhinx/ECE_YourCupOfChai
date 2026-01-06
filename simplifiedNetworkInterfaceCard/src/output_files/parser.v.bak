@@ -1,0 +1,57 @@
+module parser(
+input clock,
+input [7:0]data_in,
+input data_in_valid,
+output [7:0]reg real_data_out,
+output reg real_data_valid
+);
+
+reg [2:0]STATE;
+parameter  	IDLE = 3'b000,
+				CHCK_SFD = 3'b001,
+				CHCK_DEST_MAC = 3'b010,
+				CHCK_SRC_MAC = 3'b011,
+				CHCK_TYPE_FIELD = 3'b100,
+				CHCK_IP+HEADER = 3'b101,
+				CHCK_UDP_HEADER = 3'0110,
+				CHCK_PAYLOAD = 3'b111;
+			
+
+always@(posedge clock)
+begin
+	if(data_in_valid)
+	begin
+		case(STATE)
+			IDLE : begin
+						real_data_valid <=0;
+						STATE<=CHCK_SFD;
+					 end	
+					 
+			CHCK_SFD : begin
+							if(data_in == 8'hd5)
+							begin
+								STATE<=CHCK_DEST_MAC;
+							end
+							else
+							begin
+								real_data_valid<=0;
+							end
+						  end
+			CHCK_DEST_MAC : begin
+									if(counter<6)
+									begin
+										coounter = counter+1;
+									end
+									else if(counter == 6)
+										s
+								 end
+			
+						  
+						  
+	
+
+
+	
+	end
+end
+endmodule

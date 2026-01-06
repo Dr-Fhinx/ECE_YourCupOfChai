@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef" \
+"../../../../../../../../ECE-YourCupOfChai/FPGA/TX/uart_data.v" \
+"../../../../../../../../ECE-YourCupOfChai/FPGA/TX/udp_envelope.v" \
+"../../../../../project_1/project_1.srcs/sources_1/new/uart_data_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
